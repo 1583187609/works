@@ -1,0 +1,11 @@
+<view class="show-album">
+  <view class="banner f-sb-fs">
+    <image src="{{info.pic_radio}}" mode="aspectFill" alt="专辑海报"></image>
+    <view class="info txt-color-light f-fs-fs">
+      <view class="title txt-ellipsis">{{info.album_title}}</view>
+      <view class="author">{{info.author}}</view>
+      <view class="produce">简介：内容简介内容简介内容简介内容简介内容简介内容简介内容简介内容</view>
+    </view>
+  </view>
+  <ListItem wx:for="{{list}}" wx:key="index" info="{{item}}"></ListItem>
+</view>

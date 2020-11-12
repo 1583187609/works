@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "歌曲专区",
+  "usingComponents": {
+    "ListItem": "/components/ListItem/ListItem",
+    "SearchInput": "/components/SearchInput/SearchInput"
+  }
+}

@@ -1,0 +1,19 @@
+.show-lyric{
+
+}
+.info{
+  padding: 0 5% 40rpx;
+}
+.name{
+  font-size: 44rpx;
+}
+.author{
+  font-size: 30rpx;
+  margin-top: 10rpx;
+}
+.lyric{
+  height: 1;
+  line-height: 2;
+  text-align: center;
+  overflow: hidden;
+}

@@ -1,0 +1,38 @@
+@import "../../template/template.wxss";
+#me{
+  flex-wrap: wrap;
+}
+#user{
+  padding: 10rpx 0;
+  font-size: 38rpx;
+}
+#user image{
+  height: 120rpx;
+  width: 120rpx;
+  margin: 0 20rpx;
+  border-radius: 50%;
+}
+#type{
+  font-size: 32rpx;
+  padding: 15rpx 0;
+  background: #292929;
+}
+.v-center{
+  flex-direction: column;
+}
+.active{
+  color: #FF8F3A;
+}
+.active image{
+  background: #FF8F3A;
+}
+#type image{
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50%;
+  /* background: #FF8F3A; */
+}
+#contain{
+  width: 96%;
+  margin: 0 auto;
+}

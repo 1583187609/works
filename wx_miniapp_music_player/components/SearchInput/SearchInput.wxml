@@ -1,0 +1,6 @@
+<view class="search-input f-fs-c" bindtap="toSearchPage">
+  <input class="input" type="text" confirm-type="search" placeholder="搜搜我喜欢的音乐" disabled="{{isDisabled}}" />
+  <view class="f-fs-c view">
+    <image class="image" bindtap="search" src="../../imgs/icon/search.png" mode="aspectFill"></image>
+  </view>
+</view>

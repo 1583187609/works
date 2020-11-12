@@ -1,0 +1,41 @@
+.show-album{
+  width: 96%;
+  margin: 0 auto;
+}
+.banner{
+  border-radius: 10rpx;
+  background: #232323;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+}
+.banner image{
+  height: 240rpx;
+  width: 240rpx;
+  border-radius: 10rpx;
+}
+.info{
+  padding: 10rpx;
+  box-sizing: border-box;
+  width: calc(100% - 260rpx);
+  flex-direction: column;
+}
+.title{
+  color: #ffffff;
+  line-height: 1;
+}
+.author{
+  font-size: 28rpx;
+  line-height: 1;
+  margin: 28rpx 0 18rpx;
+}
+.produce{
+  font-size: 34rpx;
+  line-height: 40rpx;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  /*!autoprefixer:off*/
+  -webkit-box-orient: vertical;
+  /*autoprefixer:on*/
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}

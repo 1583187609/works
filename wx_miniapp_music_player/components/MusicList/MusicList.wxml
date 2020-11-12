@@ -1,0 +1,11 @@
+<view class="music-list f-fs-fs">
+  <view class="head">当前歌单：新歌榜</view>
+  <scroll-view class="body" scroll-y="true">
+    <scroll-view scroll-x="true" bindtap="play" data-id="{{item.song_id}}" class="item f-fs-c" wx:for="{{list}}" wx:key="index">
+      <text class="ind txt-color-theme">{{index+1}}</text>
+      <text class="name">{{item.title}}</text>
+      <text class="author txt-color-dark">{{item.author}}</text>
+    </scroll-view>
+  </scroll-view>
+  <view class="foot" bindtap="closeMusicList">关闭</view>
+</view>

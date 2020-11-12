@@ -1,0 +1,15 @@
+.zone{
+  height: 100vh;
+}
+.banner{
+  
+}
+.banner-img{
+  height: 300rpx;
+}
+.contain{
+  width: 100%;
+  padding: 2%;
+  box-sizing: border-box;
+  height: calc(100% - 430rpx);
+}

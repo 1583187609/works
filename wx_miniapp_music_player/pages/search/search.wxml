@@ -1,0 +1,26 @@
+<view>
+  <!-- <import src="../../template/template.wxml"/>
+  <template is="search"></template> -->
+  <SearchInput></SearchInput>
+  <view id="old">
+    <view class="title txt-color-theme">搜索历史</view>
+    <view class="cont">
+      <text wx:for="{{4}}" wx:key="index">{{'歌曲'+index}}</text>
+    </view>
+  </view>
+  <view id="hot">
+    <view class="title txt-color-theme">热门搜索</view>
+    <view class="cont">
+      <view class="item f-sb-fs txt-color-light" wx:for="{{10}}" wx:key="index">
+        <view class="left txt-color-light f-c-c">{{index+1}}</view>
+        <view class="right">
+          <view class="name">{{'歌曲'+index}}</view>
+          <view class="f-sb-fs">
+            <view class="author">{{'歌手名字'+index}}</view>
+            <view class="amount">{{11111-index}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

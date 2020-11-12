@@ -1,0 +1,31 @@
+<view class="show-poster">
+  <view class="img-box f-c-c">
+    <image src="{{currSong.pic_radio}}" class="box-shadow rotate" mode="aspectFill"></image>
+  </view>
+  <view class="info">
+    <view class="name">{{currSong.title}}</view>
+    <view class="author txt-color-light">{{currSong.author}}</view>
+    <view class="lyric-box">
+      <scroll-view wx:for="{{lyricText}}" scroll-x="true" wx:key="index" class="{{lyricInd==index ? 'active' : ''}}" hidden="{{lyricInd!=index}}">{{item}}</scroll-view>
+    </view>
+  </view>
+  <view class="control">
+    <view class="progress f-c-c">
+      <slider bindchanging="changePlayTime" value="{{sliderVal}}" activeColor="#FF8F3A" block-color="#FF8F3A" block-size="16"></slider>
+      <view class="f-sb-c txt-color-light">
+        <text>{{currMinTime}}</text>
+        <text>{{totalMinTime}}</text>
+      </view>
+    </view>
+    <view class="f-sb-c btns-box">
+      <image class="small" src="/imgs/icon/play_type_{{playTypeId}}.png" mode="aspectFill" bindtap="alterPlayType"></image>
+      <image class="big" src="/imgs/icon/previous_song.png" mode="aspectFill" data-num="-1" bindtap="playAdjoinSong"></image>
+      <image class="large" src="/imgs/icon/play_status_{{playStatusId}}.png" mode="aspectFill" bindtap="alterPlayStatus"></image>
+      <image class="big" src="/imgs/icon/next_song.png" mode="aspectFill" data-num="1" bindtap="playAdjoinSong"></image>
+      <image class="small" src="/imgs/icon/music_list.png" mode="aspectFill" bindtap="toggleMusicList"></image>
+    </view>
+    <audio controls="" id="audio" src="{{audioSrc}}" binderror="showPlayError" bindtimeupdate="updateCurrTime" loop="{{playTypeId==1}}"  bindended="ended"
+  poster="{{currSong.pic_radio}}" name="{{currSong.title}}" author="{{currSong.author}}" wx:if="{{audioSrc}}"></audio>
+  </view>
+</view>
+<MusicList bind:toggleMusicList="toggleMusicList" bind:alterSong="alterSong" wx:if="{{musicListStatus==2}}"></MusicList>

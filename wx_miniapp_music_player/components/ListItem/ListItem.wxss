@@ -1,0 +1,44 @@
+
+.item{
+  margin: 12rpx 0;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 3rpx 3rpx 10rpx #666666;
+  background: #363636;
+}
+.left{
+  height: 120rpx;
+  width: 120rpx;
+  background: #303030;
+}
+.left-img{
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50%;
+  background: #000000;
+  opacity: .4;
+}
+.right{
+  display: flex;
+  justify-content: flex-start;
+  padding: 10rpx 20rpx;
+  flex-direction: column;
+  width: calc(100% - 120rpx);
+}
+.right-view{
+  width: 100%;
+}
+.name{
+  color: #ffffff;
+  font-size: 36rpx;
+  height: 52rpx;
+}
+.right .f-sb-c{
+  height: 48rpx;
+}
+.author{
+  font-size: 30rpx;
+}
+.time{
+  font-size: 30rpx;
+}

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "MusicList": "/components/MusicList/MusicList"
+  }
+}

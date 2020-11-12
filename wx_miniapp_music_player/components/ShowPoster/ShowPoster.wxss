@@ -1,0 +1,76 @@
+.show-poster{
+  position: relative;
+  display: flex;
+  align-content: space-between;
+  flex-wrap: wrap;
+  height: 100%;
+}
+.img-box{
+  height: 500rpx;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 20rpx;
+  text-align: center;
+}
+.img-box image{
+  height: 500rpx;
+  width: 500rpx;
+  border-radius: 50%;
+}
+.info{
+  width: 100%;
+  padding: 15rpx 5%;
+  /* background: #303030; */
+}
+.name{
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 50rpx;
+  margin-bottom: 15rpx;
+}
+.author{
+  margin: 20rpx 0 10rpx;
+  font-size: 30rpx;
+}
+.lyric-box{
+  font-size: 38rpx;
+  line-height: 50rpx;
+  height: 100rpx;
+  padding: 15rpx 0;
+}
+/* .active-lyric{
+  color: #FF8F3A;
+  
+} */
+.control{
+  width: 90%;
+  margin: 0 auto;
+}
+.progress{
+  flex-wrap: wrap;
+  width: 100%;
+}
+.progress slider{
+  width: 100%;
+  margin: 0;
+}
+.progress view{
+  font-size: 30rpx;
+  width: 100%;
+}
+.btns-box{
+  padding-top: 5rpx;
+  padding-bottom: 30rpx;
+}
+.small{
+  height: 60rpx;
+  width: 60rpx;
+}
+.big{
+  height: 60rpx;
+  width: 60rpx;
+}
+.large{
+  height: 120rpx;
+  width: 120rpx;
+}

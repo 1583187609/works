@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "navigationBarTitleText": "专辑",
+  "usingComponents": {
+    "ListItem": "/components/ListItem/ListItem"
+  }
+}

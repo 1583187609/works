@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国象棋</title>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+    <div id="wrap">
+        <canvas height="600" width="600">您的浏览器不支持canvas</canvas>
+        <div id="chessboard"></div>
+        <div id="hint-cover">
+            <p id="hint"></p>
+            <button id="again-btn">再来一次</button>
+            <button id="continue-btn">继续游戏</button>
+        </div>
+        <div id="left">
+            <div id="main-btns">
+                <div id="game-name">中国象棋</div>
+                <button id="start-btn">开始游戏</button>
+                <button id="pause-btn" disabled>暂停游戏</button>
+                <button id="restart-btn" disabled>重新开始</button>
+                <button id="surrender-btn" disabled>发起投降</button>
+            </div>
+            <div id="game-rule">
+                <b>游戏说明：</b>
+                <p>只限双人面对面对战使用，红方先走。点击“开始游戏”按钮即可开局。</p>
+            </div>
+        </div>
+        <div id="right">
+            <div id="red-think">红方正在思考中…</div>
+            <div id="red-contain"></div>
+            <div id="time-count">
+                <p>开局时间</p>
+                <div id="time">00:00</div>
+            </div>
+            <div id="black-contain"></div>
+            <div id="black-think">黑方正在思考中…</div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+.box-shadow{
+  box-shadow: 0rpx 0rpx 10rpx #ffffff;
+}
+#contain{
+  flex-wrap: wrap;
+  height: 100vh;
+}
+#tab-head{
+  height: 100rpx;
+  font-size: 36rpx;
+  line-height: 80rpx;
+}
+.line{
+  margin: 0 20rpx;
+}
+#tab-body{
+  margin: 0 auto;
+  height: calc(100% - 100rpx);
+}

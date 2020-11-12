@@ -1,0 +1,353 @@
+/**********basic.css**********/
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+ul li{
+    list-style: none;
+}
+button{
+    cursor: pointer;
+}
+.clear::after{
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+.menu-show{
+    width: 280px !important;
+}
+.menu-hide{
+    width: 0 !important;
+}
+.toLeft{
+    left: 0 !important;
+}
+.toRight{
+    left: 280px !important;
+}
+.width-big{
+    width: 100% !important;
+}
+.width-small{
+    width: 590px !important;
+}
+input[type="range"]{
+    appearance: none;
+    -webkit-appearance: none; /*去除默认样式*/
+    height: 5px;
+    border-radius: 3px;
+    background: -webkit-linear-gradient(rgb(31, 210, 169), rgb(31, 210, 169)) no-repeat #fff;
+    /* background-size: 0% 100%; */     /*js中实现对应进度的背景颜色条*/
+}
+/* input[type="range"]::-webkit-slider-runnable-track{    */
+    /* height: 5px;
+    background: red; */
+/* } */
+input[type="range"]::-webkit-slider-thumb{      /*滑块*/
+    appearance: none;
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: rgb(31, 210, 169);
+}
+/**********main.css**********/
+#wrap{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 900px;
+    transform: translate(-50%,-50%);
+}
+#head{
+    cursor: move;
+    color: rgb(31, 210, 169);
+    height: 50px;
+    font: 900 30px/50px normal;
+    letter-spacing: 1em;
+    padding: 0 150px;
+    text-shadow: 5px -2px 3px #666;
+    background-image: linear-gradient(135deg, deeppink, dodgerblue);
+}
+#body{
+    position: relative;
+    height: 550px;
+}
+#body-bg{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    background-repeat: no-repeat;
+    background-origin: 0;
+    background-size: cover;
+    animation: fadeinAndfadeout 5s linear infinite;
+    -webkit-animation: fadeinAndfadeout 5s linear infinite;
+    -moz-animation: fadeinAndfadeout 5s linear infinite;
+    -o-animation: fadeinAndfadeout 5s linear infinite;
+}
+#songs{
+    float: left;
+    width: 280px;
+    height: 100%;
+    padding: 10px 0;
+    box-sizing: border-box;
+    background: rgba(110,110,110,0.6);
+    overflow: hidden;
+    -o-transition: width .5s ease-in;
+    -ms-transition: width .5s ease-in;
+    -moz-transition: width .5s ease-in;
+    -webkit-transition: width .5s ease-in;
+    transition: width .5s ease-in;
+}
+#songs h1{
+    color: #222;
+    height: 40px;
+    padding: 0 15px;
+    font: 700 18px/40px normal;
+}
+#list{
+    height: 480px;
+    width: 300px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+#list li{
+    cursor: default;
+    height: 34px;
+    padding: 0 5px;
+    font: normal 13px/34px normal;
+    border-bottom: 1px solid rgba(110,110,110,.4);
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+.active-li{
+    color: rgb(31, 210, 169);
+    font: 600 14px/34px normal !important;
+    background-color: rgba(110,110,110,.55);
+}
+#list li:hover{
+    background-color: rgba(110,110,110,.55);
+}
+#list li:last-child{
+    border-bottom: none;
+}
+#fold-btn{
+    position: absolute;
+    top: 50%;
+    left: 280px;
+    height: 80px;
+    width: 24px;
+    transform: translateY(-50%);
+    border: none;
+    border-radius: 0 10px 10px 0;
+    background-repeat: no-repeat;
+    background-origin: 0;
+    background-position: center;
+    background-size: 20px 30px;
+    background-color: rgba(110,110,110,0.7);
+    transition: left 0.5s ease-in;
+}
+.fold{
+    background-image: url(imgs/fold_out.png);
+}
+.fold:hover{
+    background: url(imgs/fold_over.png);
+}
+.unfold{
+    background: url(imgs/unfold_out.png);
+}
+.unfold:hover{
+    background: url(imgs/unfold_over.png);
+}
+#screen{
+    color: #fff;
+    float: right;
+    right: 0;
+    height: 550px;
+    width: 590px;
+    text-align: center;
+    background: rgba(110,110,110,0.6);
+    transition: width 0.5s ease-in;
+    overflow: hidden;
+}
+#song-info{
+    padding: 20px 0;
+}
+#name{
+    height: 60px;
+    font: 800 26px/60px normal;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+#singer,#album{
+    font-size: 14px;
+    height: 22px;
+    line-height: 22px;
+}
+#song-text{
+    font-size: 16px;
+    height: 360px;
+    width: calc(100% + 20px);
+    line-height: 40px;
+    overflow: auto;
+}
+#song-text li{
+    height: 40px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+.active-text{
+    color: rgb(31, 210, 169);
+    font-size: 22px;
+    font-weight: 600;
+}
+#foot{
+    padding: 0 5%;
+    height: 80px;
+    background: rgb(100, 100, 100);
+}
+#play-range{
+    width: 100%;
+}
+#btns{
+    position: relative;
+    height: 50px;
+}
+#time{
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font: normal 18px normal;
+}
+#rate{
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 130px;
+    font: 800 16px/26px normal;
+    transform: translateY(-50%);
+}
+#rate-sel{
+    appearance:none;    /*清除默认样式*/
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    height: 26px;
+    font-weight: 800;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font: 800 16px/26px normal;
+    border-radius: 4px;
+}
+#rate-sel option{
+    height: 26px;
+    font: 800 16px/26px normal;
+    border-radius: 4px;
+}
+#box{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#box button{
+    position: relative;
+    border: none;
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+    margin: 0 10px;
+    background: none;
+}
+#btns #pause-play-btn{
+    height: 48px;
+    width: 48px;
+}
+#playway-list{
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    width: 100px;
+    padding: 5px;
+    font-size: 14px;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    background: #fff;
+}
+#playway-list li{
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+#playway-list li:last-child{
+    border-bottom: none;
+}
+#playway-list li:hover{
+    background: #eee;
+}
+#playway-list li img{
+    height: 16px !important;
+    width: 16px !important;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+#playway-list li span{
+    vertical-align: middle;
+}
+#btns button img{
+    height: 100%;
+    width: 100%;
+}
+#volume-range{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    width: 200px;
+}
+/**********keyframes.css**********/
+@keyframes fadeinAndfadeout{
+    0%{opacity:0}
+    20%{opacity: 1;}
+    80%{opacity: 1;}
+    100%{opacity: 0;}
+}
+@-webkit-keyframes fadeinAndfadeout{
+    0%{opacity:0}
+    20%{opacity: 1;}
+    80%{opacity: 1;}
+    100%{opacity: 0;}
+}
+@-moz-keyframes fadeinAndfadeout{
+    0%{opacity:0}
+    20%{opacity: 1;}
+    80%{opacity: 1;}
+    100%{opacity: 0;}
+}
+@-o-keyframes fadeinAndfadeout{
+    0%{opacity:0}
+    20%{opacity: 1;}
+    80%{opacity: 1;}
+    100%{opacity: 0;}
+}

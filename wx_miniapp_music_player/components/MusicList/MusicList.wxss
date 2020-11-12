@@ -1,0 +1,44 @@
+.music-list{
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  align-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0,.9);
+}
+.head,.foot{
+  width: 100%;
+  line-height: 120rpx;
+  height: 120rpx;
+}
+.head{
+  border-bottom: 1rpx solid #999999;
+}
+.body{
+  height: calc(100% - 240rpx);
+}
+
+.item{
+  line-height: 80rpx;
+  height: 80rpx;
+  border-bottom: 1rpx solid #222222;
+}
+.ind{
+  text-align: center;
+  width: 80rpx;
+  font-weight: 900;
+}
+.name{
+
+}
+.author{
+  margin-left: 20rpx;
+  font-size: 34rpx;
+}
+.foot{
+  text-align: center;
+  border-top: 1rpx solid #999999;
+}

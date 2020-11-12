@@ -1,0 +1,26 @@
+<view>
+  <SearchInput></SearchInput>
+  <swiper id="swiper" indicator-dots="true" autoplay="true" interval="3000" indicator-color="rgba(0,0,0,.5)" indicator-active-color="#FF8F3A">
+    <swiper-item class="f-c-c" wx:for="{{lists}}" wx:key="index">
+      <image src="{{item.pic_s444}}" mode="aspectFill" data-type="{{item.type}}" 
+      data-title="{{item.name}}" bindtap="toZonePage"></image>
+    </swiper-item>
+  </swiper>
+  <view class="contain" wx:for="{{lists}}" wx:key="index">
+    <view class="title f-sb-b">
+      <text>{{item.name}}</text><navigator class="txt-color-light" open-type="navigateTo" url="../zone/zone?type={{item.type}}&title={{item.name}}">更多</navigator>
+    </view>
+    <view class="wrap f-sa-fs">
+      <navigator class="item-box" open-type="navigateTo" url="../play/play?songId={{ite.song_id}}&type={{item.type}}" wx:for="{{item.content}}" wx:for-index="ind" wx:for-item="ite" wx:key="ind">
+        <view class="img-box"  >
+          <image src="{{ite.pic_big}}" mode="aspectFill" alt="歌曲配图"></image>
+          <view class="author">{{ite.author}}</view>
+        </view>
+        <view class="name txt-color-dark">{{ite.title}}</view>
+      </navigator>
+    </view>
+  </view>
+  <import src="../../template/template.wxml"/>
+  <template is="bottomLine"></template>
+</view>
+

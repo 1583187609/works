@@ -1,0 +1,75 @@
+/* 基本样式 */
+.txt-ellipsis{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* 主题颜色（炫酷风格） */
+page{
+  color: #ffffff;
+  background: #333333;
+}
+.bd-color{
+  border-color: 1px solid #666666;
+}
+.bg-color{
+  background-color: #333333;
+}
+.txt-color-theme{
+  color: #FF8F3A;
+}
+.txt-color-light{
+  color: #999999;
+}
+.txt-color-dark{
+  color: #666666;
+}
+.active{
+  color: #FF8F3A;
+}
+/* 定位布局 */
+.f-fs-fs,.f-fs-s,.f-fs-c,.f-fs-b,.f-fs-fe,.f-sb-fs,.f-sb-s,.f-sb-c,.f-sb-b,.f-sb-fe,.f-sa-fs,.f-sa-s,.f-sa-c,.f-sa-b,.f-sa-fe,.f-c-fs,.f-c-s,.f-c-c,.f-c-b,.f-c-fe,.f-fe-fs,.f-fe-s,.f-fe-c,.f-fe-b,.f-fe-fe{
+  display: flex;
+}
+.f-fs-fs,.f-fs-s,.f-fs-c,.f-fs-b,.f-fs-fe{
+  justify-content: flex-start;
+}
+.f-sb-fs,.f-sb-s,.f-sb-c,.f-sb-b,.f-sb-fe{
+  justify-content: space-between;
+}
+.f-sa-fs,.f-sa-s,.f-sa-c,.f-sa-b,.f-sa-fe{
+  justify-content: space-around;
+}
+.f-c-fs,.f-c-s,.f-c-c,.f-c-b,.f-c-fe{
+  justify-content: center;
+}
+.f-fe-fs,.f-fe-s,.f-fe-c,.f-fe-b,.f-fe-fe{
+  justify-content: flex-end;
+}
+.f-fs-fs,.f-sb-fs,.f-sa-fs,.f-c-fs,.f-fe-fs{
+  align-items: flex-start;
+}
+.f-fs-s,.f-sb-s,.f-sa-s,.f-c-s,.f-fe-s{
+  align-items: stretch;
+}
+.f-fs-c,.f-sb-c,.f-sa-c,.f-c-c,.f-fe-c{
+  align-items: center;
+}
+.f-fs-b,.f-sb-b,.f-sa-b,.f-c-b,.f-fe-b{
+  align-items: baseline;
+}
+.f-fs-fe,.f-sb-fe,.f-sa-fe,.f-c-fe,.f-fe-fe{
+  align-items: flex-end;
+}
+/* 动画特效 */
+.rotate{
+  animation: rotate 20s linear infinite;
+}
+@keyframes rotate{
+  form{
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/play/play",
+    "pages/zone/zone",
+    "pages/search/search",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#222222",
+    "navigationBarTitleText": "千千音乐",
+    "navigationBarTextStyle": "white",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "backgroundColor": "#222222",
+    "color": "#ffffff",
+    "selectedColor": "#FF8F3A",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "imgs/icon/home.png",
+        "selectedIconPath": "imgs/icon/home_hover.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "imgs/icon/my.png",
+        "selectedIconPath": "imgs/icon/my_hover.png"
+      }
+    ]
+  },
+  "requiredBackgroundModes": ["audio", "location"],
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

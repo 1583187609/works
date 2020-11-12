@@ -1,0 +1,16 @@
+<view id="contain" class="f-c-sb">
+  <view id="tab-head" class="f-c-c txt-color-light">
+    <text bindtap="changeTabInd" data-ind="1" class="{{currTabInd==1 ? 'active':''}}">专辑</text>
+    <text class="line"> | </text>
+    <text bindtap="changeTabInd" data-ind="2" class="{{currTabInd==2 ? 'active':''}}">海报</text>
+    <text class="line"> | </text>
+    <text bindtap="changeTabInd" data-ind="3" class="{{currTabInd==3 ? 'active':''}}">歌词</text>
+  </view>
+  <view id="tab-body">
+    <ShowAlbum wx:if="{{currTabInd==1}}"></ShowAlbum>
+    <ShowPoster wx:elif="{{currTabInd==2}}"></ShowPoster>
+    <ShowLyric wx:else></ShowLyric>
+  </view>
+  <!-- <audio controls="true" id="audio" src="{{audioSrc}}" binderror="showPlayError"
+  poster="{{posterData.imgUrl}}" name="{{posterData.title}}" author="{{posterData.author}}" wx:if="{{audioSrc}}"></audio> -->
+</view>

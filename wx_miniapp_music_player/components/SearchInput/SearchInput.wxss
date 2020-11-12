@@ -1,0 +1,24 @@
+.search-input{
+  width: 90%;
+  border: 1px solid #444444;
+  margin: 20rpx auto;
+  height: 80rpx;
+  overflow: hidden;
+  border-radius: 60rpx;
+  box-shadow: 0px 0px 6rpx #FF8F3A;
+  background: #444444;
+}
+.search-input .input{
+  width: calc(100% - 80rpx);
+  height: 100%;
+  padding: 0 10rpx 0 40rpx;
+}
+.search-input .view{
+  height: 100%;
+  width: 80rpx;
+}
+.search-input .image{
+  height:50rpx;
+  width:50rpx;
+  background: #444444;
+}

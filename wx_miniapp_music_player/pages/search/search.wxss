@@ -1,0 +1,50 @@
+
+#old{
+
+}
+.title{
+  font-size: 36rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 3%;
+  background: #303030;
+}
+.cont{
+  padding: 20rpx 0;
+  width: 94%;
+  margin: 0 auto;
+}
+#old text{
+  height: 60rpx;
+  font-size: 33rpx;
+  border-radius: 20rpx;
+  padding: 6rpx 20rpx;
+  margin-right: 20rpx;
+  background: #444444;
+}
+#hot{
+
+}
+.item{
+  padding: 10rpx 0;
+  border-bottom: 1px solid #444444;
+}
+.left{
+  font-weight: 900;
+  height: 80rpx;
+  width: 60rpx;
+}
+.right{
+  width: calc(100% - 80rpx);
+}
+.name{
+  font-size: 36rpx;
+  color: #ffffff;
+}
+.author{
+  font-size: 30rpx;
+}
+.amount{
+  font-size: 30rpx;
+  align-items: flex-top;
+}

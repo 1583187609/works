@@ -1,0 +1,16 @@
+<view class="show-lyric txt-color-light">
+  <view class="info">
+    <view class="name">{{currSongInfo.title}}</view>
+    <view class="author">{{currSongInfo.author}}</view>
+  </view>
+  <view class="contain">
+    <scroll-view  class="lyric {{index==lyricInd ? 'active' : ''}}" wx:for="{{lyricText}}" wx:key="index"
+    scroll-x="true" wx:if="{{index<11}}">
+      {{item}}
+    </scroll-view>
+    <!-- <scroll-view  class="lyric {{index==lyricInd ? 'active' : ''}}" wx:for="{{lyricText}}" wx:key="index"
+    style="font-size: {{(46+(index-5)*(index<5? 2 : -2))+'rpx'}}" scroll-x="true" wx:if="{{index<11}}">
+      {{item}}
+    </scroll-view> -->
+  </view>
+</view>

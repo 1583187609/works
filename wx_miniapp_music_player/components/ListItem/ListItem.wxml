@@ -1,0 +1,12 @@
+<view class="item f-sb-c" bindtap="toPlayPage" data-id="{{info.song_id}}">
+  <view class="left f-c-c" style="background:url('{{info.pic_small}}') no-repeat 0 0/120rpx 120rpx #303030">
+    <image class="left-img" src="/imgs/icon/play.png" mode="aspectFill"></image>
+  </view>
+  <view class="right txt-color-light">
+    <view class="name txt-ellipsis right-view">{{info.title}}</view>
+    <view class="f-sb-c right-view">
+      <text class="author">{{info.author}}</text>
+      <text class="time">{{totalTime}}</text>
+    </view>
+  </view>
+</view>

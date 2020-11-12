@@ -1,0 +1,9 @@
+<view class="zone">
+  <view class="f-c-c banner">
+    <image class="banner-img" src="{{billboard.pic_s444}}" mode="aspectFill"></image>
+  </view>
+  <SearchInput class="search-input"></SearchInput>
+  <scroll-view class="contain" scroll-y="true">
+    <ListItem wx:for="{{songsList}}" wx:key="index" info="{{item}}"></ListItem>
+  </scroll-view>
+</view>

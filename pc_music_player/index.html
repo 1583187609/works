@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放器</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="head"><marquee>欢迎收听！</marquee></div>
+        <div id="body" class="clear">
+            <div id="body-bg"></div>
+            <div id="songs">
+                <h1>我的歌单</h1>
+                <ul id="list"></ul>
+            </div>
+            <div id="screen">
+                <div id="song-info">
+                    <div id="name">暂无歌曲</div>
+                    <div id="singer">歌手：<span></span></div>
+                    <div id="album">专辑：<span></span></div>
+                </div>
+                <ul id="song-text"></ul>
+            </div>
+            <button id="fold-btn" class="fold" title="点击折叠歌单"></button>
+        </div>
+        <div id="foot">
+            <input id="play-range" type="range" min="0" max="100" value="10" step="0.01"/>
+                <div id="btns">
+                <div id="time"><span>00:00</span>/<span>00:00</span></div>
+                <div id="rate">
+                    <span>倍率</span>
+                    <select id="rate-sel"></select>
+                </div>
+                <div id="box">
+                    <button>
+                        <img id="play-way-img" src="" title=""/>
+                        <ul id="playway-list">
+                            <li data-way="order"><img src="imgs/order_over.png"><span>顺序播放</span></li>
+                            <li data-way="random"><img src="imgs/random_over.png"><span>随机播放</span></li>
+                            <li data-way="single_cycle"><img src="imgs/single_cycle_over.png"><span>单曲循环</span></li>
+                            <li data-way="list_cycle"><img src="imgs/list_cycle_over.png"><span>列表循环</span></li>
+                        </ul>
+                    </button>
+                    <button><img id="back-img" src="imgs/back_out.png" title="上一首" onclick="goBack()"/></button>
+                    <button id="pause-play-btn"><img id="pause-play-img" src="imgs/pause.png" title="点击播放"/></button>
+                    <button><img id="next-img" src="imgs/next_out.png" title="下一首" onclick="goNext()"/></button>
+                    <button>
+                        <img id="volume-img" src="imgs/volume_out.png" title="开启静音"/>
+                        <input id="volume-range" type="range" min="0" max="100" value="30" step="0.1"/>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <audio id="audio">
+            <source src="" type="audio/mp3"><source>
+            <source src="" type="audio/wav"><source>
+            <source src="" type="audio/ogg"><source>
+            您的浏览器不支持HTML5 audio标签
+        </audio>
+    </div>
+    <script type="text/javascript" src="songsData.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>

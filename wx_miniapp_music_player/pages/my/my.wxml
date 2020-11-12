@@ -1,0 +1,25 @@
+<view id="me">
+  <view id="user" class="f-fs-c">
+    <image src="/imgs/icon/default_avator.png" mode="aspectFill"></image>
+    <text>用户昵称</text>
+  </view>
+  <view id="type" class="f-sa-c">
+    <view id="1" class="v-center f-c-c {{currTabId==1 ? 'active' : ''}}"  bindtap="changeTabId" data-ind="1">
+      <image src="/imgs/icon/recent.png" mode="aspectFill"></image>
+      <text>最近</text>
+    </view>
+    <view id="2" class="v-center f-c-c {{currTabId==2 ? 'active' : ''}}" bindtap="changeTabId" data-ind="2">
+      <image src="/imgs/icon/love.png" mode="aspectFill"></image>
+      <text>喜欢</text>
+    </view>
+    <view id="3" class="v-center f-c-c {{currTabId==3 ? 'active' : ''}}" bindtap="changeTabId" data-ind="3">
+      <image src="/imgs/icon/download.png" mode="aspectFill"></image>
+      <text>已下载</text>
+    </view>
+  </view>
+  <view id="contain">
+    <ListItem wx:for="{{list}}" wx:key="index" info="{{item}}"></ListItem>
+  </view>
+  <import src="../../template/template.wxml"/>
+  <template is="bottomLine"></template>
+</view>
