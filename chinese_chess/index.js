@@ -38,7 +38,6 @@ function main(){
     notAllowedSelectAndCopy();
     drawChessboard()
     initGame();
-    alert("点击开始游戏按钮即可开始！");
 }
 main();
 /******************游戏界面******************/
