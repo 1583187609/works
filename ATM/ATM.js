@@ -1,4 +1,4 @@
-﻿//基本函数
+﻿﻿//基本函数
 function $(a){
 	return document.querySelector(a);
 }
@@ -154,18 +154,16 @@ function clickPageBtn(){
 	}
 	for(var j=0;j<backCardBtns.length;j++){
 		backCardBtns[j].onclick=function(){
-			// hasCard=false;
+			hasCard=false;
 			enterPage(0);
-			// currentUser=null;   
-			// moveToUser=null;
-			// currentCard.style.cssText="display:block;left:0;top:"+useingCardY+"px;";
-			// $("#card-line").style.display="none";
+			currentUser=null;   
+			moveToUser=null;
+			currentCard.style.cssText="display:block;left:0;top:"+useingCardY+"px;";
+			$("#card-line").style.display="none";
 		}
 	}
 	for(var k=0;k<backHomeBtns.length;k++){
-		backHomeBtns[k].onclick=function(){
-			enterPage(2);
-		}
+		backHomeBtns[k].onclick=function(){enterPage(2);}
 	}
 }
 //在进行输入时，判断输入格式是否正确

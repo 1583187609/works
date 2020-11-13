@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>恐龙小游戏</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="produce">
+        <b>游戏说明：</b>
+        <p>1、按“↑”或“enter"键，开始游戏。</p>
+        <p>2、按“↑”或“enter"键，控制跳跃。</p>
+        <p>3、碰到障碍物（仙人掌树、翼龙）即游戏结束。</p>
+    </div>
+    <canvas height="300" width="1200" id="canvas"></canvas>
+    <script src="index.js"></script>
+    <script>
+        window.onload = function () {
+            let game = new Game("#canvas");
+            game.init();
+        }
+    </script>
+</body>
+</html>

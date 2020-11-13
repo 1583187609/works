@@ -1,0 +1,17 @@
+#produce{
+    margin: 0 auto;
+    width: 1200px;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+#produce p{
+    text-indent: 2em;
+}
+canvas{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid #ccc;
+}
