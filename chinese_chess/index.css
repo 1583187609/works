@@ -54,7 +54,7 @@ canvas{
 #main-btns [id$="-btn"]{
 	color: #c00;
 	position: absolute;
-	font: 900 30px/60px "隶书";
+	font: 900 30px "隶书";
 	left: 50px;
 	width: 170px;
 	height: 60px;

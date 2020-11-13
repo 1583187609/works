@@ -36,7 +36,7 @@ function $$(ele){
 /******************主函数******************/
 function main(){
     notAllowedSelectAndCopy();
-    drawChessboard()
+    drawChessboard();
     initGame();
 }
 main();
