@@ -1,0 +1,316 @@
+@import './_var.scss';
+
+//尽量不要使用通配符*，影响性能
+html {
+    color: #333;
+    font-size: 14px; //所有字体大小、行高的参照基准(一般是14px）
+    font-family: 'Microsoft YaHei', 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif; //根据情况设置多个字体，依次选择字体显示
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+div,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+input,
+button,
+textarea {
+    outline: none; //某些谷歌浏览器会有难看的黑色的外边框
+}
+
+li {
+    list-style: none;
+}
+
+/*滚动条整体样式*/
+::-webkit-scrollbar {
+    /*高宽分别对应横竖滚动条的尺寸*/
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 6px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #535353;
+}
+
+::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    background: #ededed;
+}
+
+//隐藏滚动条
+.hide-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+//多行文本省略
+@for $i from 1 through 3 {
+    .line-#{$i} {
+        @include text-ellipsis($i);
+    }
+}
+
+
+// 弹性布局类
+$justifyContent: flex-start,
+flex-end,
+center,
+space-between,
+space-around;
+$alignItems: flex-start,
+flex-end,
+center,
+/*baseline,*/
+stretch;
+$flexDirection: row,
+column
+/* ,row-reverse, column-reverse*/
+;
+$flexWrap:
+/*nowrap,*/
+wrap
+/*, wrap-reverse*/
+;
+$alignContent: flex-start,
+flex-end,
+center,
+space-between,
+space-around
+/*,stretch*/
+;
+
+@each $j in $justifyContent {
+    $jKey: str-slice($j, 1, 1);
+    $jInd: str-index($j, "-");
+
+    @if $jInd !=null {
+        $jKey: $jKey + str-slice($j, $jInd+1, $jInd+1);
+    }
+
+    .f-#{$jKey} {
+        display: flex;
+        justify-content: $j;
+    }
+
+    @each $a in $alignItems {
+        $aKey: str-slice($a, 1, 1);
+        $aInd: str-index($a, "-");
+
+        @if $aInd !=null {
+            $aKey: $aKey + str-slice($a, $aInd+1, $aInd+1);
+        }
+
+        .f-#{$jKey}-#{$aKey} {
+            display: flex;
+            justify-content: $j;
+            align-items: $a;
+        }
+
+        @each $d in $flexDirection {
+            $dKey: str-slice($d, 1, 1);
+            $dInd: str-index($d, "-");
+
+            @if $dInd !=null {
+                $dKey: $dKey + str-slice($d, $dInd+1, $dInd+1);
+            }
+
+            .f-#{$jKey}-#{$aKey}-#{$dKey} {
+                display: flex;
+                justify-content: $j;
+                align-items: $a;
+                flex-direction: $d;
+            }
+
+            @each $w in $flexWrap {
+                $wKey: str-slice($w, 1, 1);
+                $wInd: str-index($w, "-");
+
+                @if $wInd !=null {
+                    $wKey: $wKey + str-slice($w, $wInd+1, $wInd+1);
+                }
+
+                .f-#{$jKey}-#{$aKey}-#{$dKey}-#{$wKey} {
+                    display: flex;
+                    justify-content: $j;
+                    align-items: $a;
+                    flex-direction: $d;
+                    flex-wrap: $w;
+                }
+
+                @each $c in $alignContent {
+                    $cKey: str-slice($c, 1, 1);
+                    $cInd: str-index($c, "-");
+
+                    @if $cInd !=null {
+                        $cKey: $cKey + str-slice($c, $cInd+1, $cInd+1);
+                    }
+
+                    .f-#{$jKey}-#{$aKey}-#{$dKey}-#{$wKey}-#{$cKey} {
+                        display: flex;
+                        justify-content: $j;
+                        align-items: $a;
+                        flex-direction: $d;
+                        flex-wrap: $w;
+                        align-content: $c;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//f-0 ~ f-6
+@for $i from 0 through 6 {
+    .f-#{$i} {
+        flex: $i;
+    }
+}
+
+//f-g-0 ~ f-g-6
+@for $i from 0 through 6 {
+    .f-g-#{$i} {
+        flex-grow: $i;
+    }
+}
+
+//f-s-0 ~ f-s-6
+@for $i from 0 through 6 {
+    .f-s-#{$i} {
+        flex-shrink: $i;
+    }
+}
+
+//paddin、margin间距
+@for $i from 0 through 16 {
+    $num: $i*2;
+
+    .pt-#{$num} {
+        padding-top: #{$num}px;
+    }
+
+    .pr-#{$num} {
+        padding-right: #{$num}px;
+    }
+
+    .pb-#{$num} {
+        padding-bottom: #{$num}px;
+    }
+
+    .pl-#{$num} {
+        padding-left: #{$num}px;
+    }
+
+    .mt-#{$num} {
+        margin-top: #{$num}px;
+    }
+
+    .mr-#{$num} {
+        margin-right: #{$num}px;
+    }
+
+    .mb-#{$num} {
+        margin-bottom: #{$num}px;
+    }
+
+    .ml-#{$num} {
+        margin-left: #{$num}px;
+    }
+}
+
+.pt {
+    padding-top: $gap;
+}
+
+.pr {
+    padding-right: $gap;
+}
+
+.pb {
+    padding-bottom: $gap;
+}
+
+.pl {
+    padding-left: $gap;
+}
+
+.mt {
+    margin-top: $gap;
+}
+
+.mr {
+    margin-right: $gap;
+}
+
+.mb {
+    margin-bottom: $gap;
+}
+
+.ml {
+    margin-left: $gap;
+}
+
+//字体大小
+@for $i from 6 through 15 {
+    $num: $i*2;
+
+    .fs-#{$num} {
+        font-size: #{$num}px;
+    }
+}
+
+.fs {
+    font-size: 1rem;
+}
+
+//字体粗细
+@for $i from 1 through 9 {
+    $num: $i*100;
+
+    .fw-#{$num} {
+        font-weight: $num;
+    }
+}
+
+// .el-button--primary{
+//     border: none;
+//     background: linear-gradient(-30deg, #08DCA2 0%, #015DB1 100%);
+// }
+.canvas-box {
+    width: 100%;
+    height: 40%;
+    background: transparent;
+    opacity: 0.4;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+
+    canvas {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+}

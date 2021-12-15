@@ -1,0 +1,44 @@
+@import './_var.scss';
+#wrap{
+    height: 100vh;
+    width: 100vw;
+    background: lightblue;
+}
+#view{
+    position: relative;
+    margin-right: 100px;
+    .head{
+        padding: 0 $gap-half $gap-half;
+        height: 50px;
+        box-sizing: border-box;
+        background: #ccc;
+        .score{
+            font-size: 16px;
+        }
+    }
+    .body{
+        height: 500px;
+        width: 650px;
+        background: #fff;
+    }
+    #mask{
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 50px;
+        height: 500px;
+        width: 650px;
+        background: rgba(#000000, .5);
+    }
+}
+
+#operate{
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+    height: 100px;
+    width: 100px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    background: red;
+}

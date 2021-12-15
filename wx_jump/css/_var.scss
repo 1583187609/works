@@ -1,0 +1,14 @@
+$gap-half: 8px;
+$gap: 16px;
+$gap-one-half: 24px;
+$gap-two: 32px;
+
+// 文本省略(下面的注释不能删除，否则中间的那行代码将不会被保存编译到css文件里面）
+@mixin text-ellipsis($num) {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /*! autoprefixer: ignore next */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $num;
+}
