@@ -36,6 +36,10 @@ textarea {
     outline: none; //某些谷歌浏览器会有难看的黑色的外边框
 }
 
+button{
+    cursor: pointer;
+}
+
 li {
     list-style: none;
 }

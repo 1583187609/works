@@ -11,24 +11,57 @@
 </head>
 
 <body>
-    <div id="wrap" class="f-c-c">
-        <div id="view">
-            <header class="head f-sb-fe">
-                <div class="score f-fs-c">
+    <div id="app" class="f-c-c">
+        <div id="wrap">
+            <!-- <header id="header" class="f-sb-fe">
+                <div class="box">
                     <span>当前得分：</span>
-                    <b>0</b>
+                    <b class="score">0</b>
                 </div>
-                <h1>跳一跳</h1>
-                <div class="score f-fs-c">
+                <h1 class="title">跳一跳</h1>
+                <div class="box">
                     <span>最高得分：</span>
-                    <b>0</b>
+                    <b class="score">0</b>
                 </div>
-            </header>
-            <div class="body">123123</div>
-            <div id="mask" class="f-c-c">遮罩层</div>
+            </header> -->
+            <div id="bodyer">
+                <div id="mask" class="f-c-c-c" v-show="showMask" style="display: none;">
+                    <div class="f-fs-c">
+                        <img class="mr-30" src="./img/bouncer.png" style="height: 90px" />
+                        <img src="./img/logo_text.png" />
+                    </div>
+                    <div class="mt-30">
+                        <button @click="startGame" type="button" id="start-btn">开始游戏</button>
+                    </div>
+                </div>
+                <canvas id="canvas"></canvas>
+            </div>
+            <!-- <footer id="footer">
+                <div class="title">玩法规则：</div>
+                <p class="p">
+                    长按屏幕任意一处地方蓄力，并在合适的时候松开手，注意一定要把握好时机，否则就会摔下来！
+                </p>
+            </footer> -->
         </div>
-        <div id="operate" class="f-c-c">按下</div>
     </div>
+    <!-- <script src="./js/imgs.js"></script> -->
+    <script src="./js/Score.js"></script>
+    <script src="./js/Bouncer.js"></script>
+    <script src="./js/Cube.js"></script>
+    <script src="./js/Manage.js"></script>
+    <script src="./js/Game.js"></script>
+    <script>
+        // let count = 0;
+        // let boxName = "box0";
+        let game = new Game('#canvas');
+        game.start();
+        // function test() {
+        //     count++;
+        //     boxName = 'box' + count;
+        //     console.log(boxName)
+        //     game.start();
+        // }
+    </script>
 </body>
 
 </html>
