@@ -77,7 +77,7 @@ class Cube {
      * @param {Number} sX 裁剪的起始横坐标
      * @param {Number} sY 裁剪的起始纵坐标
      */
-    create(name, x, y, sX = 0, sY = 0) {
+    async create(name, x, y, sX = 0, sY = 0) {
         let { pen, ratio } = this.game;
         let { src: shadowSrc, width: shadowSW, height: shadowSH, offsetX, offsetY } = this.shadow.find(item => item.name === name.split('_')[0].replace('box', 'by'));
         let { src: boxSrc, width: boxSW, height: boxSH } = this.box.find(item => item.name === name);
@@ -91,10 +91,9 @@ class Cube {
         box.src = boxSrc;
         shadow.onload = () => {
             pen.drawImage(shadow, sX, sY, shadowSW, shadowSH, x - offsetX, y - offsetY, shadowW, shadowH);
+            box.onload = () => {
+                pen.drawImage(box, sX, sY, boxSW, boxSH, x, y, boxW, boxH);
+            }
         }
-        box.onload = () => {
-            pen.drawImage(box, sX, sY, boxSW, boxSH, x, y, boxW, boxH);
-        }
-
     }
 }

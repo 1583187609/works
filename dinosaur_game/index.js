@@ -79,6 +79,7 @@ class Manager{
             this.score.change();
         },100);
     }
+    //碰撞检测
     listenCrash(){
         this.crash.listenCrash(this.dinosaur,this.obstacle,()=>{
             this.gameOver();
@@ -109,6 +110,7 @@ class Manager{
     upRight(){
         this.dinosaur.upRight();
     }
+    //游戏结束
     gameOver(){
         for(let timer in this.timers){
             if(this.timers.hasOwnProperty(timer)){     //遍历一个对象的所有自身属性,而不是继承而来的

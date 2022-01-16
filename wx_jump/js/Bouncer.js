@@ -18,7 +18,7 @@ class Bouncer {
      * @param {Number} x 绘图的起始横坐标
      * @param {Number} y 绘图的起始纵坐标
      */
-    create(x, y) {
+    async create(x, y) {
         let { img, game, width: sW, height: sH } = this;
         let { pen, ratio } = game;
         let w = sW * ratio;
@@ -47,13 +47,13 @@ class Bouncer {
     //         this.isFalling = false;
     //     }
     // }
-    fall(sY = 0, eY = 600) {
-        let { g } = this;
-        this.speedY += g;
-        this.y += this.speedY;
-        this.isLand = this.y >= eY;
-        return this.isLand;
-    }
+    // fall(sY = 0, eY = 600) {
+    //     let { g } = this;
+    //     this.speedY += g;
+    //     this.y += this.speedY;
+    //     this.isLand = this.y >= eY;
+    //     return this.isLand;
+    // }
     // //降落
     // fall(sY = 0, eY = 600) {
     //     let { g } = this;
@@ -65,9 +65,9 @@ class Bouncer {
     //     }
     // }
     //清除弹跳所在区域的绘制
-    clear(x, y) {
-        let { game, width, height } = this;
-        let { pen } = game;
-        pen.clearRect(x, y, width, height);
-    }
+    // clear(x, y) {
+    //     let { game, width, height } = this;
+    //     let { pen } = game;
+    //     pen.clearRect(x, y, width, height);
+    // }
 }
