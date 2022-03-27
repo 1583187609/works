@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0e1ba0"],{"7c53":function(n,t,e){"use strict";e.r(t);var a=function(){var n=this,t=n.$createElement,e=n._self._c||t;return e("div",{staticClass:"profile-points"},[n._v("性能分析页面")])},c=[],s={data:function(){return{}}},i=s,r=e("2877"),u=Object(r["a"])(i,a,c,!1,null,"cff8107a",null);t["default"]=u.exports}}]);
