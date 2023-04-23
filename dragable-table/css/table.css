@@ -1,0 +1,164 @@
+.table {
+  margin: 0 16px;
+  outline: #eee solid 2px;
+  background: #f8f8f8;
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+.relative {
+  position: relative;
+  align-items: flex-start !important;
+}
+
+.layui-input {
+  height: 30px;
+  padding: 0 8px;
+}
+
+#head .btns-box {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.notice {
+  color: red;
+  padding: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.inps-box {
+  margin-left: 16px;
+  margin-bottom: 32px;
+}
+
+.inps-box .item:not(:last-child) {
+  margin-right: 32px;
+}
+
+.inps-box input {
+  width: 60px;
+  border-radius: 8px;
+  text-align: center;
+  border-color: #ccc;
+}
+
+.title {
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  outline: #eee solid 1px;
+  box-sizing: border-box;
+}
+
+.row-hover {
+  background: #f3f3f3;
+}
+
+.cell,
+.btn-cell,
+.empty-cell {
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  max-height: 36px;
+  line-height: 18px;
+  padding: 0 4px;
+  outline: #eee solid 1px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.edit-cell {
+  background: #fff;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.edit-cell .layui-textarea {
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  height: 100%;
+  line-height: 1.2;
+  min-height: 36px;
+}
+
+.par-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: #eee solid 1px;
+  box-sizing: border-box;
+}
+
+.par-cell input {
+  margin: 0 4px;
+}
+
+.cell,
+.par-cell {
+  word-break: break-all;
+}
+
+.seled-cell {
+  background: orange;
+}
+
+.drag-node {
+  cursor: move;
+  outline: #eee solid 2px;
+  background: pink;
+}
+
+.drag-area {
+  outline: #eee solid 2px;
+  box-sizing: border-box;
+  background: lightgreen;
+}
+
+.drag-area .edit-cell {
+  background: none;
+}
+
+.come-up {
+  position: fixed;
+}
+
+.box {
+  width: 100%;
+}
+
+#menu {
+  position: fixed;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px;
+  background: #fff;
+}
+
+#menu .item {
+  cursor: pointer;
+  padding: 0 8px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 4px;
+}
+
+#menu .item:hover {
+  background: #ddd;
+}

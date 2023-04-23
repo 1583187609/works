@@ -1,0 +1,102 @@
+$gap-half: 8px;
+$gap: 16px;
+$gap-one-half: 24px;
+$gap-two: 32px;
+
+// //对应element-ui各种控件的size属性的padding、margin值：large、medium、small、mini
+// $gap-large: $gap-one-half;
+// $gap-medium: ($gap-one-half + $gap)/2;
+// $gap-small: $gap;
+// $gap-mini: $gap-half;
+
+// $color-gradient-dark-light: #08DCA2;
+// $color-gradient-dark-dark: #015DB1;
+// $color-gradient-dark: linear-gradient(-30deg, $color-gradient-dark-light 0%, $color-gradient-dark-dark 100%);
+// $color-gradient-light: linear-gradient(135deg, #E2F7F3 0%, #DBE6F0 100%);
+
+// $color-theme: mix($color-gradient-dark-light, $color-gradient-dark-dark);
+// $color-text-heavyer: #333;
+// $color-text-heavy: #454;
+// $color-text-main: #687581;
+// $color-text-light: #9FAEBB;
+// $color-text-lighter: #ccc;
+
+// $color-bg-heavyer: #ddd;
+// $color-bg-heavy: #F1F4F6;
+// $color-bg-main: #F6F9FB;
+// $color-bg-light: #f7f7f7;
+// $color-bg-lighter: #f8f8f8;
+
+// $color-bg-gradient-light: linear-gradient(90deg, #DBECF7 0%, #DAFAF4 100%);
+// ;
+// $color-bg-gradient-dark: linear-gradient(-30deg, #08DCA2 0%, #015DB1 100%);
+
+// $color-border-heavyer: #bbbbbb;
+// $color-border-heavy: #d2d2d2;
+// $color-border-main: #dddddd;
+// $color-border-light: #e3e3e3;
+// $color-border-lighter: #eeeeee;
+
+// $color-disabled-bg: #eee;
+// $color-disabled-border: #ddd;
+// $color-disabled-text: #999;
+
+
+// $radius-heavyer: 12px;
+// $radius-heavy: 10px;
+// $radius-main: 8px;
+// $radius-light: 6px;
+// $radius-lighter: 4px;
+
+
+// $height-heavyester: 56px;
+// $height-heavyest: 52px;
+// $height-heavyer: 48px;
+// $height-heavy: 44px;
+// $height-main: 40px;
+// $height-light: 36px;
+// $height-lighter: 32px;
+// $height-lightest: 28px;
+// $height-lightester: 24px;
+
+// $line-height-heavyer: 32px;
+// $line-height-heavy: 28px;
+// $line-height-main: 24px;
+// $line-height-light: 20px;
+// $line-height-lighter: 16px;
+
+// $font-size-heavyester: 22px;
+// $font-size-heavyest: 20px;
+// $font-size-heavyer: 18px;
+// $font-size-heavy: 16px;
+// $font-size-main: 14px;
+// $font-size-light: 13px;
+// $font-size-lighter: 12px;
+
+
+// //radio 、 checkbox的宽高
+// $square-size: $font-size-main;
+
+
+// $opacity-hover: .85;
+
+
+
+// 文本省略(下面的注释不能删除，否则中间的那行代码将不会被保存编译到css文件里面）
+@mixin text-ellipsis($num) {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /*! autoprefixer: ignore next */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $num;
+}
+
+// @mixin text-gradient() {
+//     color: $color-theme;
+//     background-image: -webkit-linear-gradient(135deg,
+//             $color-gradient-dark-light 0%,
+//             $color-gradient-dark-dark 100%);
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+// }

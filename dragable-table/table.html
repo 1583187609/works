@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <link rel="stylesheet" href="./layui/css/layui.css" />
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/table.css">
+</head>
+
+<body>
+    <div class="notice">
+        <div>注：</div>
+        <ul>
+            <li>1、粉红色表示可拖动的单元格。</li>
+            <li>2、淡绿色表示可拖动单元格集合的可拖动区域。</li>
+            <li>3、在表格内部白色区域是可合并、拆分的。按住鼠标右键拖动选择单元格，松开鼠标按键，然后再次按下鼠标右键（此时鼠标要放在橙黄色区域内），弹出右键菜单，可以选择合并或拆分单元格。</li>
+        </ul>
+    </div>
+    <div id="app" v-cloak>
+        <div class="table">
+            <header id="head">
+                <div style="position: relative;">
+                    <div class="title">指标评价体系</div>
+                    <div class="btns-box">
+                        <button onClick="addRowCb()" type="button" class="layui-btn layui-btn-sm">选择指标</button>
+                    </div>
+
+                </div>
+                <div class="f-fs-s">
+                    <div class="cell" :class="{'f-1': !col.width}" :style="getStyle(col)" v-for="(col,ind) in showCols"
+                        :key="ind">
+                        {{col.text}}
+                    </div>
+                </div>
+            </header>
+            <main id="body" @mousedown="onMouseDown($event)" @click="onCell" @dblclick="onDbEditCell">
+                <template v-if="rootRows.length">
+                    <!-- 在vue2中，下面的递归dom不能提成子组件，每个子组件需要一个dom盒子容纳，多一层冗余的盒子会导致可拖动节点的容器及其父容器嵌套关系改变 -->
+                    <div class="row" :class="getClass(rootRow, {})" v-for="(rootRow,rootInd) in rootRows"
+                        :key="rootInd">
+                        <div :style="getStyle(oneRow)" :class="getClass(oneRow, rootRow)" :data-row="oneRow.row"
+                            :data-col="oneRow.col" :data-rowspan="oneRow.rowspan" :data-id="oneRow.id"
+                            v-for="(oneRow,oneInd) in rootRow.children" :key="oneInd">
+                            <template v-if="oneRow.type==='text'">
+                                {{oneRow.text}}
+                            </template>
+                            <template v-else-if="oneRow.type==='box'">
+                                <div :style="getStyle(twoRow)" :class="getClass(twoRow, oneRow)"
+                                    v-for="(twoRow, twoInd) in oneRow.children" :key="twoInd">
+                                    <div :style="getStyle(threeRow)" :class="getClass(threeRow, twoRow)"
+                                        :data-row="threeRow.row" :data-col="threeRow.col"
+                                        :data-rowspan="threeRow.rowspan" :data-id="threeRow.id"
+                                        v-for="(threeRow,threeInd) in twoRow.children" :key="threeInd">
+                                        <template v-if="threeRow.type==='text'">
+                                            {{threeRow.text}}
+                                        </template>
+                                        <template v-else-if="threeRow.type==='box'">
+                                            <div :style="getStyle(fourRow)" :class="getClass(fourRow, threeRow)"
+                                                :data-row="fourRow.row" :data-col="fourRow.col"
+                                                :data-rowspan="fourRow.rowspan" :data-id="fourRow.id"
+                                                v-for="(fourRow, fourInd) in threeRow.children" :key="fourInd">
+                                                <template v-if="fourRow.type==='text'">
+                                                    {{fourRow.text}}
+                                                </template>
+                                                <template v-else-if="fourRow.type==='box'">
+                                                    <div :style="getStyle(fiveRow)"
+                                                        :class="getClass(fiveRow, fourRow)"
+                                                        :data-row="fiveRow.row" :data-col="fiveRow.col"
+                                                        :data-rowspan="fiveRow.rowspan" :data-id="fiveRow.id"
+                                                        v-for="(fiveRow, fiveInd) in fourRow.children" :key="fiveInd">
+                                                        <template v-if="fiveRow.type==='text'">
+                                                            {{fiveRow.text}}
+                                                        </template>
+                                                        <template v-else-if="fiveRow.type==='box'">
+                                                            <div :style="getStyle(sixRow)"
+                                                                :class="getClass(sixRow, fiveRow)"
+                                                                :data-row="sixRow.row" :data-col="sixRow.col"
+                                                                :data-rowspan="sixRow.rowspan" :data-id="sixRow.id"
+                                                                v-for="(sixRow, sixInd) in fiveRow.children"
+                                                                :key="sixInd">
+                                                                <template v-if="sixRow.type==='text'">
+                                                                    {{sixRow.text}}
+                                                                </template>
+                                                                <template v-else-if="sixRow.type==='box'">
+                                                                    <div :style="getStyle(sevenRow)"
+                                                                        :class="getClass(sevenRow, sixRow)"
+                                                                        :data-row="sevenRow.row"
+                                                                        :data-col="sevenRow.col"
+                                                                        :data-rowspan="sevenRow.rowspan"
+                                                                        :data-id="sevenRow.id"
+                                                                        v-for="(sevenRow, sevenInd) in sixRow.children"
+                                                                        :key="sevenInd">
+                                                                        <template v-if="sevenRow.type==='text'">
+                                                                            {{sevenRow.text}}
+                                                                        </template>
+                                                                        <template v-else-if="sevenRow.type==='box'">
+                                                                            <div :style="getStyle(eightRow)"
+                                                                                :class="getClass(eightRow, sevenRow)"
+                                                                                :data-row="eightRow.row"
+                                                                                :data-col="eightRow.col"
+                                                                                :data-rowspan="eightRow.rowspan"
+                                                                                :data-id="eightRow.id"
+                                                                                v-for="(eightRow, eightInd) in sevenRow.children"
+                                                                                :key="eightInd">
+                                                                                <template v-if="eightRow.type==='text'">
+                                                                                    {{eightRow.text}}
+                                                                                </template>
+                                                                                <template
+                                                                                    v-else-if="eightRow.type==='box'">
+                                                                                    <div :style="getStyle(nineRow)"
+                                                                                        :class="getClass(nineRow, eightRow)"
+                                                                                        :data-row="nineRow.row"
+                                                                                        :data-col="nineRow.col"
+                                                                                        :data-rowspan="nineRow.rowspan"
+                                                                                        :data-id="nineRow.id"
+                                                                                        v-for="(nineRow, nineInd) in eightRow.children"
+                                                                                        :key="nineInd">
+                                                                                        <template
+                                                                                            v-if="nineRow.type==='text'">
+                                                                                            {{nineRow.text}}
+                                                                                        </template>
+                                                                                        <template
+                                                                                            v-else-if="nineRow.type==='box'">
+                                                                                            <div :style="getStyle(tenRow)"
+                                                                                                :class="getClass(tenRow, nineRow)"
+                                                                                                :data-row="tenRow.row"
+                                                                                                :data-col="tenRow.col"
+                                                                                                :data-rowspan="tenRow.rowspan"
+                                                                                                :data-id="tenRow.id"
+                                                                                                v-for="(tenRow, tenInd) in nineRow.children"
+                                                                                                :key="tenInd">
+                                                                                                <template
+                                                                                                    v-if="tenRow.type==='text'">
+                                                                                                    {{tenRow.text}}
+                                                                                                </template>
+                                                                                                <template
+                                                                                                    v-else-if="tenRow.type==='box'">
+                                                                                                    <div :style="getStyle(elevenRow)"
+                                                                                                        :class="getClass(elevenRow, tenRow)"
+                                                                                                        :data-row="elevenRow.row"
+                                                                                                        :data-col="elevenRow.col"
+                                                                                                        :data-rowspan="elevenRow.rowspan"
+                                                                                                        :data-id="elevenRow.id"
+                                                                                                        v-for="(elevenRow, elevenInd) in tenRow.children"
+                                                                                                        :key="elevenInd">
+                                                                                                        <template
+                                                                                                            v-if="elevenRow.type==='text'">
+                                                                                                            {{elevenRow.text}}
+                                                                                                        </template>
+                                                                                                        <template
+                                                                                                            v-else-if="elevenRow.type==='box'">
+                                                                                                            <div :style="getStyle(twelveRow)"
+                                                                                                                :class="getClass(twelveRow, elevenRow)"
+                                                                                                                :data-row="twelveRow.row"
+                                                                                                                :data-col="twelveRow.col"
+                                                                                                                :data-rowspan="twelveRow.rowspan"
+                                                                                                                :data-id="twelveRow.id"
+                                                                                                                v-for="(twelveRow, twelveInd) in elevenRow.children"
+                                                                                                                :key="twelveInd">
+                                                                                                                <template
+                                                                                                                    v-if="twelveRow.type==='text'">
+                                                                                                                    {{twelveRow.text}}
+                                                                                                                </template>
+                                                                                                                <template
+                                                                                                                    v-else-if="twelveRow.type==='box'">
+                                                                                                                    <div :style="getStyle(thirteenRow)"
+                                                                                                                        :class="getClass(thirteenRow, twelveRow)"
+                                                                                                                        :data-row="thirteenRow.row"
+                                                                                                                        :data-col="thirteenRow.col"
+                                                                                                                        :data-rowspan="thirteenRow.rowspan"
+                                                                                                                        :data-id="thirteenRow.id"
+                                                                                                                        v-for="(thirteenRow, thirteenInd) in twelveRow.children"
+                                                                                                                        :key="thirteenInd">
+                                                                                                                        <template
+                                                                                                                            v-if="thirteenRow.type==='text'">
+                                                                                                                            {{thirteenRow.text}}
+                                                                                                                        </template>
+                                                                                                                    </div>
+                                                                                                                </template>
+                                                                                                            </div>
+                                                                                                        </template>
+                                                                                                    </div>
+                                                                                                </template>
+                                                                                            </div>
+                                                                                        </template>
+                                                                                    </div>
+                                                                                </template>
+                                                                            </div>
+                                                                        </template>
+                                                                    </div>
+                                                                </template>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                        <div class="f-fs-s-r-w-s" :style="getBtnsBoxStyle">
+                            <div class="f-sb-s" v-for="(row,rInd) in getRowTotal(roots[rootInd])" :key="rInd"
+                                style="width: 100%;">
+                                <div @mouseenter="onBtnCellEnter(rootInd,rInd)"
+                                    @mouseleave="onBtnCellLeave(rootInd,rInd)" class="btn-cell" :style="getStyle(item)"
+                                    v-for="(item,ind) in btnCols" :key="ind">
+                                    <template v-if="item.name==='szsjly'">
+                                        <button @click="toggleSet('szsjly',rootInd,rInd,'sjzb','sjlyHasSet')"
+                                            :disabled="!canEdit" :class="{'layui-btn-disabled': !canEdit, 'layui-border-red': !getNodeAttrByRootInd(rootInd,rInd,'sjzb',
+                                            'sjlyHasSet')}"
+                                            class="layui-btn layui-btn-primary layui-btn-xs">{{getNodeAttrByRootInd(rootInd,rInd,'sjzb',
+                                            'sjlyHasSet') ?
+                                            '已设置' : '未设置'}}</button>
+                                    </template>
+                                    <template v-else-if="item.name==='szjfgz'">
+                                        <button @click="toggleSet('szjfgz',rootInd,rInd,'sjzb','jfgzHasSet')"
+                                            :disabled="!canEdit" :class="{'layui-btn-disabled': !canEdit, 'layui-border-red': !getNodeAttrByRootInd(rootInd,rInd,'sjzb',
+                                            'jfgzHasSet')}"
+                                            class="layui-btn layui-btn-primary layui-btn-xs">{{getNodeAttrByRootInd(rootInd,rInd,'sjzb',
+                                            'jfgzHasSet') ?
+                                            '已设置' : '未设置'}}</button>
+                                    </template>
+                                    <template v-else-if="item.name==='cz'">
+                                        <button @click='deleteRow(rootInd,rInd,roots)'
+                                            :disabled="getColAttr('cz').disabled"
+                                            :class="{'layui-btn-disabled': getColAttr('cz').disabled}"
+                                            class="layui-btn layui-btn-primary layui-border-red layui-btn-xs">删除</button>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <div class="row cell f-c-c" style="height: 44px;" v-else>暂无数据哟~</div>
+            </main>
+        </div>
+        <div class="f-c-c" style="height: 100px;">
+            <button onClick="onSave()" type="button" class="layui-btn">保存</button>
+            <button onClick="onSubmit()" type="button" class="layui-btn">提交</button>
+        </div>
+        <ul id="menu" v-show="showMenu" ref="menu">
+            <li @click="mergeCells" class="item">合并单元格</li>
+            <li @click="splitCells" class="item">拆分单元格</li>
+        </ul>
+    </div>
+    <script src="./js/origin_cells.js"></script>
+    <script src="./js/add_cells.js"></script>
+    <script src="./layui/layui.js"></script>
+    <script src="./js/vue.dev.js"></script>
+    <script src="./js/table.js"></script>
+    <script>
+        let count = 0;
+        const { calNodesAttr, addNodesToRootTrees } = table;
+        table.canEdit = true;
+        table.cols = [
+            { name: 'pjwd', text: '评价纬度' },
+            { name: 'yjzb', text: '评价内容（一级指标）' },
+            { name: 'ejzb', text: '二级指标' },
+            { name: 'sjzb', text: '三级指标' },
+            { name: 'pjgjsj', text: '评价关键数据', editable: true, width: 100 },
+            { name: 'pjxhbzjyd', text: '评价细化标准及要点', editable: true, width: 150 },
+            { name: 'szsjly', text: '设置数据来源', type: 'btn', width: 100 },
+            { name: 'szjfgz', text: '设置计分规则', type: 'btn', width: 100 },
+            { name: 'cz', text: '操作', type: 'btn', width: 100, whenEditShow: true, disabled: true }
+        ]
+        /**
+         * 初始化节点属性（给每个节点添加row、col、rowspan属性）
+         * **/
+        function initNodesAttr() {
+            // http();
+            // let originNodes = [];
+            let newNodes = calNodesAttr(originNodes);
+        }
+        //新增行
+        function addRowCb() {
+            // http();
+            // addNodesToRootTrees(testData);
+            addNodesToRootTrees(originNodes);
+            // if (count === 0) {
+            //     addNodesToRootTrees(addNodes.one);
+            // } else if (count === 1) {
+            //     addNodesToRootTrees(addNodes.two);
+            // } else if (count === 2) {
+            //     addNodesToRootTrees(addNodes.three);
+            // }
+            // count++;
+        }
+        //删除行之后的回调函数
+        function deleteRowCb(delNodes, useNodes) {
+            let isSuccess = true;
+            return isSuccess;
+        }
+        /**
+         * 切换是否已设置按钮的回调函数
+         * @btnColName {String} 列的表头名称，例如：szsjly、szjfgz
+         * @targetNode {Object} 设置按钮所在行的目标节点
+         * @return {Boolean} 请求是否成功
+         */
+        function toggleSetCb(btnColName, targetNode) {
+            let isSuccess = true;
+            console.log(btnColName, targetNode);
+            return isSuccess;
+        }
+        //点击保存按钮
+        function onSave() {
+            console.log("点击了提交按钮", table.nodes)
+        }
+        //点击提交按钮
+        function onSubmit() {
+            console.log("点击了保存按钮", table.nodes)
+        }
+        addRowCb();
+        // addRowCb();
+    </script>
+</body>
+
+</html>
