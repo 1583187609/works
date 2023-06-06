@@ -1,1 +1,0 @@
-import{aM as e,aI as s,ak as r}from"./rewrite-2fee0426.js";const i=()=>{let i=null;function n(){i.exposed.resize()}e((()=>{i=r(),window.addEventListener("resize",n)})),s((()=>{window.removeEventListener("resize",n)}))};export{i as u};
