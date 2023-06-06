@@ -1,1 +1,0 @@
-import{a2 as e,a as s,bR as t,bS as a}from"./rewrite-3b822c29.js";const i={props:{name:{type:String,default:"ElemeFilled"},size:{type:[String,Number],default:"1em"}},setup(i){const r=e((()=>a[i.name]));return()=>s(r.value,{class:"base-icon",style:{height:t(i.size),width:t(i.size)}})}};export{i as default};

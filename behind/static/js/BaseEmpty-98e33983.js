@@ -1,1 +1,0 @@
-import{d as s,o as t,g as e,i as p}from"./rewrite-3b822c29.js";const r=s({__name:"BaseEmpty",props:{tips:{default:"空空如也~"}},setup:s=>(r,a)=>{const i=p("el-empty");return t(),e(i,{description:s.tips},null,8,["description"])}});export{r as default};
