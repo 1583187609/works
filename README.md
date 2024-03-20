@@ -2,7 +2,7 @@
 非项目，只是用来存放个人平时业余的一些作品。
 # 在线预览：按难->易程度排列顺序
 
-* behind后台管理：https://fanlichuan.gitee.io/works/behind/index.html
+* behind后台管理：https://fanlichuan.gitee.io/works/management/vue/index.html
 * 可拖动、合并、拆分、选区、编辑表格（指定任意子级区域、非标准树）：https://fanlichuan.gitee.io/works/dragable-table/index.html
 * 工业协议模糊测试软件（帮朋友待做、Mock数据）：https://fanlichuan.gitee.io/works/backstage/index.html
 * 恐龙沙漠逃亡小游戏（仿谷歌浏览器断网时的页面的小游戏）：https://fanlichuan.gitee.io/works/dinosaur_game/index.html
