@@ -1,0 +1,1 @@
+import{q as t,t as e,v as s}from"./runtime-core.esm-bundler-95bf9971.js";const a={class:"attitude-list"},c=t({__name:"AttitudeList",props:{data:{default:()=>({})}},setup(o){return(i,n)=>(e(),s("div",a,"attitude-list"))}});export{c as _};

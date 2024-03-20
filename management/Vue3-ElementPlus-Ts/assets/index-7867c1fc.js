@@ -1,0 +1,1 @@
+import{q as e,t,v as a}from"./runtime-core.esm-bundler-95bf9971.js";const o={class:""},_=e({__name:"index",props:{data:{default:()=>({})}},setup(s){return(n,c)=>(t(),a("div",o,"数据分析-首页"))}});export{_ as default};

@@ -1,0 +1,1 @@
+import{q as s,t as a,v as t,K as n}from"./runtime-core.esm-bundler-95bf9971.js";const o={class:"base-age"},_=s({__name:"BaseAge",props:{num:{default:26}},setup(r){return(e,p)=>(a(),t("div",o,n(e.num),1))}});export{_ as default};

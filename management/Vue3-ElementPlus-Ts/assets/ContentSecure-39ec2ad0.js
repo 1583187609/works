@@ -1,0 +1,1 @@
+import{q as e,t,v as o}from"./runtime-core.esm-bundler-95bf9971.js";const n={class:"content-secure"},p=e({__name:"ContentSecure",props:{_example_prop:{default:()=>({})}},setup(s){return(c,r)=>(t(),o("div",n,"内容安全配置（暂时不做）"))}});export{p as default};
