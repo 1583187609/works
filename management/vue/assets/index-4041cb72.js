@@ -1,1 +1,0 @@
-import{q as e,t,v as o}from"./runtime-core.esm-bundler-95bf9971.js";const s={class:""},r=e({__name:"index",props:{_example_prop:{default:()=>({})}},setup(a){return(n,p)=>(t(),o("div",s,"扁平按钮特效"))}});export{r as default};

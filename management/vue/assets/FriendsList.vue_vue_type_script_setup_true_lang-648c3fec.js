@@ -1,1 +1,0 @@
-import{q as e,t as s,v as t}from"./runtime-core.esm-bundler-95bf9971.js";const n={class:"friends-list"},_=e({__name:"FriendsList",props:{data:{default:()=>({})}},setup(o){return(r,a)=>(s(),t("div",n,"friends-list"))}});export{_};

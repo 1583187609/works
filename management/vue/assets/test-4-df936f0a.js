@@ -1,1 +1,0 @@
-import{q as e,t,v as o}from"./runtime-core.esm-bundler-95bf9971.js";const s={class:""},_=e({__name:"test-4",props:{data:{default:()=>({})}},setup(a){return(n,c)=>(t(),o("div",s,"富文本编辑器demo待完善"))}});export{_ as default};

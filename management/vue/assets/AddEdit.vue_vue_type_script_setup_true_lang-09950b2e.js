@@ -1,1 +1,0 @@
-import{q as e,t,v as s}from"./runtime-core.esm-bundler-95bf9971.js";const a={class:"example-vue"},_=e({__name:"AddEdit",props:{data:{},refreshList:{}},setup(o){return(r,n)=>(t(),s("div",a,"example-vue"))}});export{_};

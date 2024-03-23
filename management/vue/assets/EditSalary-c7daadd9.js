@@ -1,0 +1,1 @@
+import{_ as o}from"./EditSalary.vue_vue_type_script_setup_true_lang-bfc93370.js";import"./index-8b36bd1b.js";import"./user-0406c028.js";import"./GetValWays.vue_vue_type_script_setup_true_lang-7efb269c.js";export{o as default};
