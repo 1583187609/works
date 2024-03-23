@@ -1,1 +1,0 @@
-import{M as e,aE as o,u as t}from"./index-bd59ce9f.js";const a={class:""},r=e({__name:"index",props:{_example_prop:{default:()=>({})}},setup(s){return(n,p)=>(o(),t("div",a,"扁平按钮特效"))}});export{r as default};
