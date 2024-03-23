@@ -1,1 +1,0 @@
-import{M as e,aE as s,u as t}from"./index-8b36bd1b.js";const a={class:"example-vue"},_=e({__name:"AddEdit",props:{data:{},refreshList:{}},setup(o){return(r,n)=>(s(),t("div",a,"example-vue"))}});export{_};

@@ -1,1 +1,0 @@
-import{M as a,aR as s,aE as p,s as t}from"./index-8b36bd1b.js";const _=a({__name:"FindPassword",setup(r){const e=[{prop:"pheon",label:"电话",valid:"phone"},{prop:"psd",label:"密码",valid:"password",attrs:{type:"password"}},{prop:"captcha",label:"验证码",attrs:{maxlength:4}}];return(n,l)=>{const o=s("BaseForm");return p(),t(o,{style:{width:"450px"},fields:e})}}});export{_};

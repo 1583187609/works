@@ -1,0 +1,1 @@
+import{M as e,aE as s,u as t}from"./index-bd59ce9f.js";const n={class:"friends-list"},_=e({__name:"FriendsList",props:{data:{default:()=>({})}},setup(a){return(o,r)=>(s(),t("div",n,"friends-list"))}});export{_};
