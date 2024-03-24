@@ -1,1 +1,0 @@
-const t={rowKey:"id",border:!0,tableLayout:"auto",highlightCurrentRow:!0,defaultExpandAll:!1},e={align:"center",headerAlign:"center"},a={background:!0,layout:"total, sizes, prev, pager, next, jumper"};export{t as a,a as b,e as d};
