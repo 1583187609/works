@@ -1,0 +1,1 @@
+import{M as e,aE as s,u as a}from"./index-31bd5f7b.js";const t={class:"content-secure"},o=e({__name:"ContentSecure",props:{_example_prop:{default:()=>({})}},setup:e=>(e,o)=>(s(),a("div",t,"内容安全配置（暂时不做）"))});export{o as default};
