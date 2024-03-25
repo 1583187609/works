@@ -1,1 +1,0 @@
-import{M as t,aE as s,u as a}from"./index-31bd5f7b.js";const i={class:"attitude-list"},e=t({__name:"AttitudeList",props:{data:{default:()=>({})}},setup:t=>(t,e)=>(s(),a("div",i,"attitude-list"))});export{e as _};

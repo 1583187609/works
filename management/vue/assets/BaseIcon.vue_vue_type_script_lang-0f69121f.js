@@ -1,1 +1,0 @@
-import{q as e,I as s,cn as a,cu as t}from"./index-31bd5f7b.js";const i={props:{name:{type:String,default:"ElemeFilled"},size:{type:[String,Number],default:"1em"}},setup(i){const n=e((()=>t[i.name]));return()=>s(n.value||"span",{class:"base-icon",style:{height:a(i.size),width:a(i.size)}},n.value?void 0:i.name)}};export{i as _};
