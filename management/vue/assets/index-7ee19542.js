@@ -1,0 +1,1 @@
+import{M as e,bO as s,aE as t,u as a}from"./index-f41eb58a.js";const n={class:"page-view"},o=e({__name:"index",setup(e){const{getOpts:o,getText:d}=s();return o("Sex"),(e,s)=>(t(),a("div",n,"demo-7"))}});export{o as default};

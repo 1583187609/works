@@ -1,0 +1,1 @@
+import{M as a,aE as s,u as e,b3 as t}from"./index-f41eb58a.js";const u={class:"base-age"},m=a({__name:"BaseAge",props:{num:{default:26}},setup:a=>(a,m)=>(s(),e("div",u,t(a.num),1))});export{m as default};
