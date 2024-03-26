@@ -1,1 +1,0 @@
-import{M as a,aE as s,u as e,bH as t}from"./index-f41eb58a.js";const d={class:"base-print"},i=t(a({__name:"SetPrint",setup:a=>(a,t)=>(s(),e("div",d,"base-print.vue"))}),[["__scopeId","data-v-83cd6022"]]);export{i as default};
