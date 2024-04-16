@@ -1,0 +1,1 @@
+import{d as e,o as a,c as s}from"./@vue-022d9836.js";const o=e({name:"SystemDictionary",__name:"index",props:{_example_prop:{default:()=>({})}},setup:e=>(e,o)=>(a(),s("div",null,"字典管理"))});export{o as default};

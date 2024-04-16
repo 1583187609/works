@@ -1,0 +1,1 @@
+import{d as a,o as s,c as t}from"./@vue-022d9836.js";const e={class:""},o=a({name:"StatisticsHome",__name:"index",props:{data:{default:()=>({})}},setup:a=>(a,o)=>(s(),t("div",e,"数据分析-首页"))});export{o as default};

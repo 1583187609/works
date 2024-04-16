@@ -1,0 +1,1 @@
+import{d as e,o,c as t}from"./@vue-022d9836.js";const s={class:"content-secure"},a=e({name:"DemoFourContentSecure",__name:"ContentSecure",props:{_example_prop:{default:()=>({})}},setup:e=>(e,a)=>(o(),t("div",s,"内容安全配置（暂时不做）"))});export{a as default};

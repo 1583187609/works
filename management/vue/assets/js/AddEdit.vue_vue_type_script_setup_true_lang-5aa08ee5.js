@@ -1,0 +1,1 @@
+import{d as a,o as e,c as s}from"./@vue-022d9836.js";const d={class:"example-vue"},p=a({name:"SalaryTemplateCalTplAddEdit",__name:"AddEdit",props:{data:{},refreshList:{}},setup:a=>(a,p)=>(e(),s("div",d,"example-vue"))});export{p as _};
