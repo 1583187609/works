@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI抠图</title>
+    <link rel="stylesheet" href="./css/base.min.css" />
+    <link rel="stylesheet" href="./css/index.min.css" />
+  </head>
+  <body>
+    <div class="f-fs-s-c page" id="app">
+      <h1 class="header f-0 f-c-c">AI抠图</h1>
+      <div class="bodyer f-1 f-c-c-c">
+        <div class="img-box" id="img-box">
+          <img class="img" id="img" />
+        </div>
+        <input type="file" class="inp" id="inp" />
+      </div>
+      <div class="footer f-0 f-c-c">
+        <button onclick="getRectPositions()" class="btn">获取截取坐标</button>
+        <button onclick="clearRects()" class="btn">清空</button>
+      </div>
+    </div>
+    <script src="./js/index.js"></script>
+    <script>
+      const delay = 50;
+      const inp = $("#inp");
+      const img = $("#img");
+      const imgBox = $("#img-box");
+      const rects = [];
+      let timer = null;
+      let num = 0;
+      img.src = tempImg;
+      inp.onchange = (e) => {
+        clearRects();
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (e) => {
+          img.src = e.target.result;
+        };
+      };
+      document.onmousedown = (e) => {
+        const isAtImgArea = e.target.id === "img";
+        if (!isAtImgArea) return;
+        const { offsetX, offsetY, pageX, pageY } = e;
+        const { offsetWidth: imgW, offsetHeight: imgH } = img;
+        const dom = createRectDom(offsetX, offsetY);
+        rects.push(dom);
+        document.onmousemove = throttle((eve) => {
+          const isRect = eve.target.classList.contains("rect");
+          const { clientX, clientY } = eve;
+          const width = Math.min(eve.pageX - pageX, imgW - offsetX);
+          const height = Math.min(eve.pageY - pageY, imgH - offsetY);
+          if (width > 0) {
+            dom.style.width = width + "px";
+          } else {
+            const absW = Math.abs(width);
+            dom.style.width = Math.min(absW, offsetX) + "px";
+            dom.style.left = Math.max(offsetX - absW, 0) + "px";
+          }
+          if (height > 0) {
+            dom.style.height = height + "px";
+          } else {
+            const absH = Math.abs(height);
+            dom.style.height = Math.min(absH, offsetY) + "px";
+            dom.style.top = Math.max(offsetY - absH, 0) + "px";
+          }
+          dom.innerText =
+            Math.abs(width) > 16 && Math.abs(height) > 16 ? num : "";
+        }, 50);
+        document.onmouseup = () => {
+          document.onmouseup = document.onmousemove = null;
+        };
+      };
+      function createRectDom(left = 0, top = 0, width = 0, height = 0) {
+        const div = document.createElement("div");
+        div.classList.add("rect");
+        div.classList.add("f-c-c");
+        div.style.cssText = `left:${left}px;top:${top}px;width:${width}px;height:${height}px`;
+        div.id = `rect-${++num}`;
+        imgBox.append(div);
+        return div;
+      }
+      function getRectPositions() {
+        if (rects.length === 0) return alert("请标记选区");
+        const positions = rects.map((item) => {
+          const { offsetHeight, offsetWidth, offsetTop, offsetLeft } = item;
+          return [
+            [offsetLeft, offsetTop],
+            [offsetLeft + offsetWidth, offsetTop],
+            [offsetLeft, offsetTop + offsetHeight],
+            [offsetLeft + offsetWidth, offsetTop + offsetHeight],
+          ];
+        });
+        const strArr = positions
+          .map((it, i) => `选区${i + 1}：${JSON.stringify(it)}`)
+          .join("\n");
+        alert(
+          `以图片左上角顶点为原点\n坐标点依次为左上、右上、左下、右下\n\n共${rects.length}个选区\n${strArr}`
+        );
+        return positions;
+      }
+      function clearRects() {
+        rects.forEach((item) => {
+          imgBox.removeChild(item);
+        });
+        rects.length = 0;
+        num = 0;
+      }
+    </script>
+  </body>
+</html>
